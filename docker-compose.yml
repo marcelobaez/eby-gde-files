@@ -1,0 +1,12 @@
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: production
+    volumes:
+      - ./:/usr/src/app
+    env_file:
+    - .env
+    ports:
+      - 4000:4000

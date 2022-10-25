@@ -39,14 +39,12 @@ export class DocumentController {
     const filePath = `${query.year}/${query.location}/${millions}/${thousands}/${fileName}/${fileName}.pdf`;
 
     const fullFilePath = join(this.configService.get<string>('BASE_SHARED_PATH'), filePath);
-    console.log(fullFilePath)
 
     try {
       accessSync(fullFilePath);
       
       return filePath;
     } catch (err) {
-      console.log('file not found');
       throw new HttpException({
         status: HttpStatus.NOT_FOUND,
         error: 'No se encontro el documento',
