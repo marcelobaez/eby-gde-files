@@ -12,7 +12,7 @@ export class DocumentController {
   @Get()
   @UseGuards(AuthGuard('api-key'))
   @Header('Content-Type', 'application/pdf')
-  @Header('Content-Disposition', 'attachment; filename=IF-2022-00020235-GDEEBY-CIVIL#OBRAS.pdf')
+  @Header('Content-Disposition', 'attachment;')
   getFile(@Query() query: DownloadDocDto): StreamableFile {
 
     const filePath = join(this.configService.get<string>('BASE_SHARED_PATH'), query.path);
